@@ -1,15 +1,15 @@
 package java_advanced.framework.spring.core;
 
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import configuration.JavaConfigurationFile;
 
 public class JavaApp {
 	public static void execution() {
-		String xmlConfigurationFile = "applicationContext.xml";
-		ConfigurableApplicationContext configurableApplicationContext = new ClassPathXmlApplicationContext(xmlConfigurationFile);
-		Student student = configurableApplicationContext.getBean("student1", Student.class);
-		System.out.println(student);
+		ConfigurableApplicationContext configurableApplicationContext = new AnnotationConfigApplicationContext(JavaConfigurationFile.class);
+		Product product = configurableApplicationContext.getBean("product1", Product.class);
+		System.out.println(product);
 		configurableApplicationContext.close();
 	}
 
